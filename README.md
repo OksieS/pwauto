@@ -12,3 +12,6 @@ Setting up the project
 Commands
 
 1. to run a simple test (no config file) 'npx playwright test --headed'
+2. to run a test in FF browser 'npx playwright test -- headed --browser=firefox'
+3. to run in all browser 'npx playwright test -- headed --browser=all'
+4. to specify a path to a test 'npx playwright test tests/example.test.ts'
