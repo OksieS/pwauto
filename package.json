@@ -1,0 +1,24 @@
+{
+  "name": "pwauto",
+  "version": "1.0.0",
+  "description": "test automation",
+  "homepage": "https://github.com/OksieS/pwauto#readme",
+  "bugs": {
+    "url": "https://github.com/OksieS/pwauto/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OksieS/pwauto.git"
+  },
+  "license": "ISC",
+  "author": "oxie-author",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.58.1",
+    "prettier": "^3.8.1"
+  }
+}
