@@ -40,39 +40,43 @@ test("Assertions Test", async ({ page }) => {
 });
 
 test.describe("Test Suit", () => {
-  test("Test One @Regression", async ({ page }) => {
+  //Create Before Hook
+  test.beforeEach(async ({ page }) => {
+    console.log("Before Each Test");
     await page.goto("https://www.example.com");
+  });
+
+  test("Test One @Regression", async ({ page }) => {
     console.log("Test One Executed...");
     await expect(page).toHaveURL("https://www.example.com");
   });
 
   test("Test Two @Smoke", async ({ page }) => {
-    await page.goto("https://www.example.com");
     console.log("Test Two Executed...");
     await expect(page).toHaveURL("https://www.example.com");
   });
 
   test("Test Three @Regression", async ({ page }) => {
-    await page.goto("https://www.example.com");
     console.log("Test Three Executed...");
     await expect(page).toHaveURL("https://www.example.com");
   });
 
   test("Test Four @Smoke", async ({ page }) => {
-    await page.goto("https://www.example.com");
     console.log("Test Four Executed...");
     await expect(page).toHaveURL("https://www.example.com");
   });
 
   test("Test Five @Regression", async ({ page }) => {
-    await page.goto("https://www.example.com");
     console.log("Test Five Executed...");
     await expect(page).toHaveURL("https://www.example.com");
   });
 
   test("Test Six @Smoke", async ({ page }) => {
-    await page.goto("https://www.example.com");
     console.log("Test Six Executed...");
     await expect(page).toHaveURL("https://www.example.com");
+  });
+
+  test.afterEach(async ({ page }) => {
+    console.log("After Each Test...");
   });
 });

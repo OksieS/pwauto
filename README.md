@@ -54,3 +54,9 @@ Reporter
 
 1. To have a report run
    npx playwright test --config=playwright.config.ts --project=chromium --reporter=html
+
+---
+
+Hooks
+
+1. test.beforeEach(({page})=> {})
