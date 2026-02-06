@@ -47,3 +47,10 @@ PW Config File
    }
 4. projects:[{browsers}]
    To run tests from Config file run > npx playwright test --config=playwright.config.ts --project=chromium
+
+---
+
+Reporter
+
+1. To have a report run
+   npx playwright test --config=playwright.config.ts --project=chromium --reporter=html
