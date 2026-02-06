@@ -15,3 +15,11 @@ Commands
 2. to run a test in FF browser 'npx playwright test -- headed --browser=firefox'
 3. to run in all browser 'npx playwright test -- headed --browser=all'
 4. to specify a path to a test 'npx playwright test tests/example.test.ts'
+
+---
+
+Annotations
+
+1. test.skip()
+2. test.only()
+3. test.describe("Test Suit", () => {}) - it is SYNC function
