@@ -23,3 +23,10 @@ Annotations
 1. test.skip()
 2. test.only()
 3. test.describe("Test Suit", () => {}) - it is SYNC function
+
+---
+
+Tags
+
+1. to run tests with a Tag > npx playwright test --grep @myTag
+2. to NOT run use > npx playwright test --grep-invert @myTag

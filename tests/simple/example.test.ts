@@ -40,37 +40,37 @@ test("Assertions Test", async ({ page }) => {
 });
 
 test.describe("Test Suit", () => {
-  test("Test One", async ({ page }) => {
+  test("Test One @Regression", async ({ page }) => {
     await page.goto("https://www.example.com");
     console.log("Test One Executed...");
     await expect(page).toHaveURL("https://www.example.com");
   });
 
-  test("Test Two", async ({ page }) => {
+  test("Test Two @Smoke", async ({ page }) => {
     await page.goto("https://www.example.com");
     console.log("Test Two Executed...");
     await expect(page).toHaveURL("https://www.example.com");
   });
 
-  test("Test Three", async ({ page }) => {
+  test("Test Three @Regression", async ({ page }) => {
     await page.goto("https://www.example.com");
     console.log("Test Three Executed...");
     await expect(page).toHaveURL("https://www.example.com");
   });
 
-  test("Test Four", async ({ page }) => {
+  test("Test Four @Smoke", async ({ page }) => {
     await page.goto("https://www.example.com");
     console.log("Test Four Executed...");
     await expect(page).toHaveURL("https://www.example.com");
   });
 
-  test("Test Five", async ({ page }) => {
+  test("Test Five @Regression", async ({ page }) => {
     await page.goto("https://www.example.com");
     console.log("Test Five Executed...");
     await expect(page).toHaveURL("https://www.example.com");
   });
 
-  test("Test Six", async ({ page }) => {
+  test("Test Six @Smoke", async ({ page }) => {
     await page.goto("https://www.example.com");
     console.log("Test Six Executed...");
     await expect(page).toHaveURL("https://www.example.com");
