@@ -4,7 +4,7 @@ import { loadHomePage, assertTitle } from "../../helpers";
 test("Simple test", async ({ page }) => {
   await page.goto("https://www.example.com");
   const pageTitle = page.locator("h1");
-  await expect(pageTitle).toContainText("Example Domain");
+  await expect(pageTitle).toContainText("Example Domaino");
   await page.waitForTimeout(1000);
 });
 
@@ -40,7 +40,7 @@ test("Assertions Test", async ({ page }) => {
   await expect(ghostElement).not.toBeVisible();
 });
 
-test.describe("Ten Tests Suit", () => {
+test.describe.parallel("Ten Tests Suit", () => {
   //Create Before Hook
   test.beforeEach(async ({ page }) => {
     console.log("Before Each Test");

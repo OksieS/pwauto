@@ -3,13 +3,14 @@ import { PlaywrightTestConfig } from "@playwright/test";
 const config: PlaywrightTestConfig = {
   timeout: 30000,
   retries: 0,
+  testDir: "tests/e2e",
   use: {
     headless: false,
     viewport: { width: 1280, height: 720 },
     actionTimeout: 5000,
     ignoreHTTPSErrors: true,
     video: "off",
-    screenshot: "on",
+    screenshot: "off",
   },
   projects: [
     {
