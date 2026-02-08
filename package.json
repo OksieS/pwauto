@@ -17,7 +17,8 @@
   "scripts": {
     "tests:chrome": "npx playwright test --config=playwright.config.ts --project=chromium",
     "tests:regression": "npx playwright test --config=playwright.config.ts --project=chromium --grep @Regression",
-    "tests:smoke": "npx playwright test --config=playwright.config.ts --grep @Smoke --project=chromium"
+    "tests:smoke": "npx playwright test --config=playwright.config.ts --grep @Smoke --project=chromium",
+    "tests:e2e": "npx playwright test --config=e2e.config.ts --project=chromium"
   },
   "dependencies": {
     "@playwright/test": "^1.58.1",
