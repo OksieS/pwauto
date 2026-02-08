@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { loadHomePage, assertTitle } from "../../helpers";
 
 test("Simple test", async ({ page }) => {
   await page.goto("https://www.example.com");
@@ -39,16 +40,18 @@ test("Assertions Test", async ({ page }) => {
   await expect(ghostElement).not.toBeVisible();
 });
 
-test.describe("Test Suit", () => {
+test.describe("Ten Tests Suit", () => {
   //Create Before Hook
   test.beforeEach(async ({ page }) => {
     console.log("Before Each Test");
-    await page.goto("https://www.example.com");
+    loadHomePage(page); //await page.goto("https://www.example.com");
   });
 
   test("Test One @Regression", async ({ page }) => {
     console.log("Test One Executed...");
     await expect(page).toHaveURL("https://www.example.com");
+    await page.waitForTimeout(2000);
+    await assertTitle(page);
   });
 
   test("Test Two @Smoke", async ({ page }) => {

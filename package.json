@@ -15,7 +15,9 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tests:chrome": "npx playwright test --config=playwright.config.ts --project=chromium",
+    "tests:regression": "npx playwright test --config=playwright.config.ts --project=chromium --grep @Regression",
+    "tests:smoke": "npx playwright test --config=playwright.config.ts --grep @Smoke --project=chromium"
   },
   "dependencies": {
     "@playwright/test": "^1.58.1",
