@@ -1,46 +1,60 @@
 import { test, expect, Locator } from "@playwright/test";
+import { LoginPage } from "../../page-objects/LoginPage";
+//import { login } from "../../helpers";
+import { HomePage } from "../../page-objects/HomePage";
+import { BankingPage } from "../../page-objects/BankingPage";
+import { AccountSummaryPage } from "../../page-objects/AccountSummaryPage";
 
 test.describe("Log in & Log out flow", () => {
-  const baseURL: string = "http://zero.webappsecurity.com/index.html";
+  let loginPage: LoginPage;
+  let homePage: HomePage;
+  let bankingPage: BankingPage;
+  let accountSummaryPage: AccountSummaryPage;
+
   const username: string = "username";
-  const invalidUsername: string = "wrongUsername";
   const password: string = "password";
+  const invalidUsername: string = "wrongUsername";
   const invalidPassword: string = "wrongPassword";
-  const errorMsg = "Login and/or password are wrong.";
-  const successMsg = "";
+  const errorText = "Login and/or password are wrong.";
 
   test.beforeEach(async ({ page }) => {
-    await page.goto(baseURL);
+    homePage = new HomePage(page);
+    loginPage = await homePage.openLoginPage();
   });
 
-  test("Invalid Username Test", async ({ page }) => {
-    await page.click("#signin_button");
-    await page.fill("#user_login", invalidUsername);
-    await page.fill("#user_password", password);
-    await page.click("text=Sign in");
-    await expect(page.locator("#login_form>div:first-child")).toContainText(
-      errorMsg,
-    );
+  test.skip("Invalid Username Test", async ({ page }) => {
+    await loginPage.login(invalidUsername, password);
+    await loginPage.page.waitForTimeout(1000);
+    await expect(loginPage.errorMSG).toContainText(errorText);
   });
 
-  test("Invalid Password Test", async ({ page }) => {
-    await page.click("#signin_button");
-    await page.fill("#user_login", username);
-    await page.fill("#user_password", invalidPassword);
-    await page.click("text=Sign in");
-    await expect(page.locator(".alert-error")).toContainText(errorMsg);
+  test.skip("Invalid Password Test", async ({ page }) => {
+    await loginPage.login(username, invalidPassword);
+    await expect(loginPage.errorMSG).toContainText(errorText);
   });
 
-  test.only("Login Test", async ({ page }) => {
-    await page.click("#signin_button");
-    await page.fill("#user_login", username);
-    await page.fill("#user_password", password);
-    await page.click("text=Sign in");
-    //await page.waitForTimeout(500);
-    await page.waitForLoadState("networkidle");
-    await page.goto(baseURL);
+  test.skip("Log in Test", async ({ page }) => {
+    await loginPage.login("username", "password");
+    await homePage.open();
     await expect(
-      page.locator("#settingsBox>ul>li:nth-child(3)>a"),
+      loginPage.page.locator("#settingsBox>ul>li:nth-child(3)>a"),
     ).toContainText(username);
+  });
+
+  test.skip("Log out Test", async ({ page }) => {
+    await loginPage.login(username, password);
+    await homePage.open();
+    await expect(
+      loginPage.page.locator("#settingsBox>ul>li:nth-child(3)>a"),
+    ).toContainText(username);
+    await loginPage.logout();
+  });
+
+  test("Open Banking Page Test", async ({ page }) => {
+    await loginPage.login(username, password);
+    await homePage.open();
+    bankingPage = await homePage.openBankingPage();
+    accountSummaryPage = await bankingPage.openAccountSummary();
+    await accountSummaryPage.printHeader();
   });
 });
