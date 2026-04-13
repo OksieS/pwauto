@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
-import { HomePage } from "../../page-objects/HomePage";
-import { FeedbackPage } from "../../page-objects/FeedbackPage";
+import { HomePage } from "../../../page-objects/HomePage";
+import { FeedbackPage } from "../../../page-objects/FeedbackPage";
 
 test.describe("Submit Form Tests", () => {
   //const baseURL = "http://zero.webappsecurity.com/index.html";
