@@ -3,7 +3,6 @@ import { HomePage } from "../../page-objects/HomePage";
 import { LoginPage } from "../../page-objects/LoginPage";
 import { BankingPage } from "../../page-objects/BankingPage";
 import { PayBillsPage } from "../../page-objects/PayBillsPage";
-import { AccountActivityPage } from "../../page-objects/AccountActivityPage";
 
 test.describe("Pay Bills Page Tests", () => {
   let homepage: HomePage;
@@ -23,7 +22,7 @@ test.describe("Pay Bills Page Tests", () => {
     await homepage.open();
     await homepage.openBankingPage();
     await bankingPage.openPayBills();
-    await bankingPage.page.waitForTimeout(2000);
+    //await bankingPage.page.waitForTimeout(2000);
   });
 
   test("PayBillPage Tabs Test", async ({ page }) => {
@@ -65,12 +64,12 @@ test.describe("Pay Bills Page Tests", () => {
       const payee: string = await payBillsPage.getRandomPayee();
       await payBillsPage.selectPayee(payee);
       console.log(`${payee} has been selected`);
-      await page.waitForTimeout(2000);
+      //await page.waitForTimeout(2000);
     });
 
     await test.step("Select Random Account", async () => {
       await payBillsPage.selectRandomAccount();
-      await page.waitForTimeout(2000);
+      //await page.waitForTimeout(2000);
     });
 
     await test.step("Set Amount to Pay", async () => {
@@ -88,7 +87,7 @@ test.describe("Pay Bills Page Tests", () => {
 
     await test.step("Press the Pay button Test", async () => {
       await payBillsPage.payButton.click();
-      await page.waitForTimeout(3000);
+      //await page.waitForTimeout(3000);
     });
 
     await test.step("Verify Payment Submited", async () => {
