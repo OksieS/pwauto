@@ -1,8 +1,8 @@
 import { test, expect } from "@playwright/test";
-import { HomePage } from "../../../page-objects/HomePage";
-import { LoginPage } from "../../../page-objects/LoginPage";
-import { BankingPage } from "../../../page-objects/BankingPage";
-import { AccountActivityPage } from "../../../page-objects/AccountActivityPage";
+import { HomePage } from "../../page-objects/HomePage";
+import { LoginPage } from "../../page-objects/LoginPage";
+import { BankingPage } from "../../page-objects/BankingPage";
+import { AccountActivityPage } from "../../page-objects/AccountActivityPage";
 
 test.describe("Account Activity Tab Tests", () => {
   let homepage: HomePage;

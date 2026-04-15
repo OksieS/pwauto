@@ -1,9 +1,9 @@
 import { test, expect, Locator } from "@playwright/test";
-import { LoginPage } from "../../../page-objects/LoginPage";
+import { LoginPage } from "../../page-objects/LoginPage";
 //import { login } from "../../helpers";
-import { HomePage } from "../../../page-objects/HomePage";
-import { BankingPage } from "../../../page-objects/BankingPage";
-import { AccountSummaryPage } from "../../../page-objects/AccountSummaryPage";
+import { HomePage } from "../../page-objects/HomePage";
+import { BankingPage } from "../../page-objects/BankingPage";
+import { AccountSummaryPage } from "../../page-objects/AccountSummaryPage";
 
 test.describe("Log in & Log out flow", () => {
   let loginPage: LoginPage;
