@@ -37,7 +37,7 @@ test.describe("Transfer Funds Test", () => {
     //await transferPage.page.waitForTimeout(2000);
     await expect(
       transferPage.page.getByText(
-        "You successfully submitted your transaction.",
+        "You! successfully submitted your transaction.",
       ),
     ).toBeVisible();
   });
