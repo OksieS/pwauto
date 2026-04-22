@@ -2,7 +2,6 @@ import { PlaywrightTestConfig } from "@playwright/test";
 
 const config: PlaywrightTestConfig = {
   timeout: 30000,
-  reporter: "gitHub",
   retries: 0,
   use: {
     headless: true,
