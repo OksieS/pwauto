@@ -3,16 +3,14 @@ import { expect, Locator, Page } from "@playwright/test";
 import { AccountSummaryPage } from "./AccountSummaryPage";
 import { AccountActivityPage } from "./AccountActivityPage";
 import { PayBillsPage } from "./PayBillsPage";
+import { TransferFundsPage } from "./TransferFundsPage";
 
 export class BankingPage {
   //define selectors
   readonly page: Page;
   readonly accountSummary: Locator;
   readonly accountActivity: Locator;
-
-  /*
   readonly transferFunds: Locator;
-  */
 
   readonly payBills: Locator;
   /*
@@ -25,9 +23,9 @@ export class BankingPage {
     this.accountSummary = page.locator("#account_summary_link");
 
     this.accountActivity = page.locator("#account_activity_link");
-    /*
+
     this.transferFunds = page.locator("#transfer_funds_link");
-    */
+
     this.payBills = page.locator("#pay_bills_link");
 
     /*this.myMoneyMap = page.locator("#money_map_link");
@@ -43,12 +41,12 @@ export class BankingPage {
     await this.accountActivity.click();
     return new AccountActivityPage(this.page);
   }
-  /* 
+
   async openTransferFunds() {
     await this.transferFunds.click();
     return new TransferFundsPage(this.page);
   }
-*/
+
   async openPayBills() {
     await this.payBills.click();
     return new PayBillsPage(this.page);

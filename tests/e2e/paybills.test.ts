@@ -59,7 +59,7 @@ test.describe("Pay Bills Page Tests", () => {
     });
   });
 
-  test.only("Make a Payment Test", async ({ page }) => {
+  test("Make a Payment Test", async ({ page }) => {
     await test.step("Select Payee", async () => {
       const payee: string = await payBillsPage.getRandomPayee();
       await payBillsPage.selectPayee(payee);
