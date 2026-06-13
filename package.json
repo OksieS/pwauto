@@ -22,7 +22,7 @@
     "tests:report": "npx playwright test --config=e2e.config.ts --project=chromium --reporter=html,list"
   },
   "dependencies": {
-    "@playwright/test": "^1.58.1",
+    "@playwright/test": "^1.60.0",
     "prettier": "^3.8.1"
   }
 }
