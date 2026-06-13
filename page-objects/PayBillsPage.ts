@@ -1,8 +1,9 @@
 import { Page, Locator } from "@playwright/test";
+import { AbstractPage } from "./AbstractPage";
 
-export class PayBillsPage {
+export class PayBillsPage extends AbstractPage {
   //define selectors
-  readonly page: Page;
+  //readonly page: Page;
   readonly pageTitle: Locator;
   readonly paySavedPayeeTab: Locator;
   readonly addNewPayeeTab: Locator;
@@ -32,7 +33,7 @@ export class PayBillsPage {
 
   //init selectors in constructor
   constructor(page: Page) {
-    this.page = page;
+    super(page);
     this.pageTitle = page.getByRole("heading", {
       name: "Make payments to your saved payees",
     });
