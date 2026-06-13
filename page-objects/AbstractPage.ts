@@ -17,6 +17,7 @@ export class AbstractPage {
   }
 
   async getURL() {
+    console.log(`Page URL: ${await this.page.url()}`);
     return this.page.url();
   }
 }
