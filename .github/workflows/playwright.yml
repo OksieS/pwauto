@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [main, master]
 jobs:
-  Plawright test run:
+  Playwright-test-run:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
