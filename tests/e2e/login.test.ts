@@ -51,8 +51,10 @@ test.describe("Log in & Log out flow", () => {
   });
 
   test("Open Banking Page Test", async ({ page }) => {
+    await loginPage.getTitle();
     await loginPage.login(username, password);
     await homePage.open();
+    await homePage.getTitle();
     bankingPage = await homePage.openBankingPage();
     accountSummaryPage = await bankingPage.openAccountSummary();
     await accountSummaryPage.printHeader();

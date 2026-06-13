@@ -2,10 +2,12 @@ import { expect, Locator, Page } from "@playwright/test";
 import { LoginPage } from "./LoginPage";
 import { FeedbackPage } from "./FeedbackPage";
 import { BankingPage } from "./BankingPage";
+import { OnlineServicesPage } from "./OnlineServicesPage";
+import { AbstractPage } from "./AbstractPage";
 
-export class HomePage {
+export class HomePage extends AbstractPage {
   //define selectors
-  readonly page: Page;
+  //readonly page: Page;
   readonly signInButton: Locator;
   readonly onlineBankingTab: Locator;
   readonly feedbackTab: Locator;
@@ -14,7 +16,8 @@ export class HomePage {
 
   //init selectors
   constructor(page: Page) {
-    this.page = page;
+    //this.page = page;
+    super(page);
     this.signInButton = page.locator("button#signin_button");
     this.onlineBankingTab = page.locator("#onlineBankingMenu");
     this.feedbackTab = page.locator("#feedback");
@@ -45,5 +48,12 @@ export class HomePage {
   async openFeedbackPage() {
     await this.feedbackTab.click();
     return new FeedbackPage(this.page);
+  }
+
+  async OnlineServicesPage() {
+    await this.page.goto(
+      "http://zero.webappsecurity.com/bank/account-summary.html",
+    );
+    return new OnlineServicesPage(this.page);
   }
 }

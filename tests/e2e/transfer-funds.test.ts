@@ -25,7 +25,7 @@ test.describe("Transfer Funds Test", () => {
     await bankingPage.openTransferFunds();
   });
 
-  test.only("Transfer Money Test", async ({ page }) => {
+  test("Transfer Money Test", async ({ page }) => {
     transferPage.selectRandomFromAccount();
     transferPage.selectRandomToAccount();
     await transferPage.page.waitForTimeout(2000);
@@ -37,7 +37,7 @@ test.describe("Transfer Funds Test", () => {
     //await transferPage.page.waitForTimeout(2000);
     await expect(
       transferPage.page.getByText(
-        "You successfully submitted your transaction.!",
+        "You successfully submitted your transaction.",
       ),
     ).toBeVisible();
   });
