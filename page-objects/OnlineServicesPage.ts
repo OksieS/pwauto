@@ -1,9 +1,10 @@
 import { Page, Locator } from "@playwright/test";
 import { Navbar } from "./components/Navbar";
+import { AbstractPage } from "./AbstractPage";
 
-export class OnlineServicesPage {
+export class OnlineServicesPage extends AbstractPage {
   //define selectors
-  readonly page: Page;
+  //readonly page: Page;
   readonly onlineServices: string[] = [
     "Account Summary",
     "Account Activity",
@@ -16,7 +17,7 @@ export class OnlineServicesPage {
 
   //init selectors in constructor
   constructor(page: Page) {
-    this.page = page;
+    super(page);
     this.navbar = new Navbar(page);
   }
 }

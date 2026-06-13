@@ -1,15 +1,16 @@
 import { Page, Locator } from "@playwright/test";
+import { AbstractPage } from "./AbstractPage";
 
-export class AccountSummaryPage {
+export class AccountSummaryPage extends AbstractPage {
   //define selectors
-  readonly page: Page;
+  //readonly page: Page;
   readonly cashAccountsHeader: Locator;
   readonly investmentAccountsHeader: Locator;
   readonly creditAccountsHeader: Locator;
 
   //init selectors in constructor
   constructor(page: Page) {
-    this.page = page;
+    super(page);
     this.cashAccountsHeader = page.getByRole("heading", {
       name: "Cash Accounts",
     });

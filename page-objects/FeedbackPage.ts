@@ -1,8 +1,9 @@
 import { Page, Locator } from "@playwright/test";
+import { AbstractPage } from "./AbstractPage";
 
-export class FeedbackPage {
+export class FeedbackPage extends AbstractPage {
   //define selectors
-  readonly page: Page;
+  //readonly page: Page;
   readonly pageTitle: Locator;
   readonly nameField: Locator;
   readonly emailField: Locator;
@@ -13,7 +14,7 @@ export class FeedbackPage {
   readonly successMessage: Locator;
   //init selectors in constructor
   constructor(page: Page) {
-    this.page = page;
+    super(page);
     this.pageTitle = page.getByRole("heading", { name: "Feedback" });
     this.nameField = page.getByRole("textbox", { name: "Your Name" });
     this.emailField = page.getByRole("textbox", {

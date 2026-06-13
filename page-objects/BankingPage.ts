@@ -4,10 +4,11 @@ import { AccountSummaryPage } from "./AccountSummaryPage";
 import { AccountActivityPage } from "./AccountActivityPage";
 import { PayBillsPage } from "./PayBillsPage";
 import { TransferFundsPage } from "./TransferFundsPage";
+import { AbstractPage } from "./AbstractPage";
 
-export class BankingPage {
+export class BankingPage extends AbstractPage {
   //define selectors
-  readonly page: Page;
+  //readonly page: Page;
   readonly accountSummary: Locator;
   readonly accountActivity: Locator;
   readonly transferFunds: Locator;
@@ -19,7 +20,7 @@ export class BankingPage {
 
   //init selectors
   constructor(page: Page) {
-    this.page = page;
+    super(page);
     this.accountSummary = page.locator("#account_summary_link");
 
     this.accountActivity = page.locator("#account_activity_link");

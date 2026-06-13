@@ -1,8 +1,9 @@
 import { Page, Locator } from "@playwright/test";
+import { AbstractPage } from "./AbstractPage";
 
-export class AccountActivityPage {
+export class AccountActivityPage extends AbstractPage {
   //define selectors
-  readonly page: Page;
+  //readonly page: Page;
   readonly showTransactinTab: Locator;
   readonly showTabTitle: Locator;
   readonly findTransactionTab: Locator;
@@ -18,7 +19,8 @@ export class AccountActivityPage {
 
   //init selectors in constructor
   constructor(page: Page) {
-    this.page = page;
+    //this.page = page;
+    super(page);
     this.showTransactinTab = page.getByRole("link", {
       name: "Show Transactions",
     });
